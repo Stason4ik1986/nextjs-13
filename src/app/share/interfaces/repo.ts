@@ -9,5 +9,5 @@ export interface IRepo {
 
 export interface IRepoContent {
   path: string;
-  type: string | 'dir';
+  type: string | "dir";
 }

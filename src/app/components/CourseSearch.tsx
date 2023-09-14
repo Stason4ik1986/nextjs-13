@@ -1,16 +1,20 @@
-'use client';
-import React, { useState, FormEvent } from 'react';
-import { ICourse } from 'share/interfaces/course';
+"use client";
+import React, { useState, FormEvent } from "react";
+import { ICourse } from "share/interfaces/course";
 
-const CourseSearch = ({ search }: { search: (courses: ICourse[]) => void }): React.JSX.Element => {
-  const [query, setQuery] = useState<string>('');
+const CourseSearch = ({
+  search,
+}: {
+  search: (courses: ICourse[]) => void;
+}): React.JSX.Element => {
+  const [query, setQuery] = useState<string>("");
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     const res = await fetch(`/api/courses/search?query=${query}`);
 
     if (!res.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error("Failed to fetch data");
     }
 
     search(await res.json());
@@ -24,7 +28,9 @@ const CourseSearch = ({ search }: { search: (courses: ICourse[]) => void }): Rea
         value={query}
         className="search-input"
         placeholder="Serach Courses"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setQuery(e.target.value)
+        }
       />
       <button className="search-button" type="submit">
         Search

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 
-import { ICourse } from 'share/interfaces/course';
+import { ICourse } from "share/interfaces/course";
 
 const Courses = ({ courses }: { courses: ICourse[] }): React.JSX.Element => {
   return (

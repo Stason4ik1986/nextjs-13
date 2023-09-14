@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import Link from 'next/link';
-import { FaEye, FaStar, FaCodeBranch } from 'react-icons/fa';
+import Link from "next/link";
+import { FaEye, FaStar, FaCodeBranch } from "react-icons/fa";
 
-import { GITHUB_API, GITHUB_USER } from 'constants/github';
+import { GITHUB_API, GITHUB_USER } from "constants/github";
 
-import { IRepo } from 'share/interfaces/repo';
+import { IRepo } from "share/interfaces/repo";
 
 async function fetchRepos(): Promise<IRepo[]> {
   const res = await fetch(`${GITHUB_API}/users/${GITHUB_USER}/repos`, {
@@ -15,7 +15,7 @@ async function fetchRepos(): Promise<IRepo[]> {
   });
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data');
+    throw new Error("Failed to fetch data");
   }
 
   return res.json();
